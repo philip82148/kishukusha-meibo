@@ -1,0 +1,22 @@
+{
+  "extends": ["next/core-web-vitals", "standard-with-typescript", "prettier"],
+  "plugins": ["import", "unused-imports", "simple-import-sort", "sort-exports"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always"
+      }
+    ],
+    "unused-imports/no-unused-imports": "error",
+    "import/newline-after-import": "error",
+    "@typescript-eslint/consistent-type-imports": ["error", { "prefer": "type-imports" }],
+    "sort-exports/sort-exports": ["error", { "sortDir": "asc", "sortExportKindFirst": "type" }],
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@next/next/no-img-element": "off"
+  }
+}
