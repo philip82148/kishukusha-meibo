@@ -1,8 +1,46 @@
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
-import { Box, Stack, Typography } from '@mui/material'
+import { Box, Stack, Typography, styled } from '@mui/material'
 
 import { HomeHeader } from '@/components/HomeHeader'
+
+const ManualHeader = styled('h2')(() => ({
+  padding: '30px 28px 10px',
+  borderBottom: '3px solid #333',
+}))
+
+const ManualImg = styled('img')(() => ({
+  width: '100%',
+  marginBottom: '-12%',
+}))
+
+const CaptionBox = styled(Box)(() => ({
+  position: 'relative',
+  zIndex: 1,
+  padding: '56px 0',
+  marginBottom: '90px',
+  textAlign: 'center',
+  background: 'linear-gradient(0, #fff, rgba(255, 255, 255, 0.8))',
+}))
+
+const NoteBox = styled(Box)(() => ({
+  maxWidth: 900,
+  padding: '40px 80px',
+  borderRadius: 10,
+  backgroundColor: '#dadada',
+  margin: '35px auto 0',
+  textAlign: 'start',
+  '&:not(:first-child)': {
+    marginTop: '26px',
+  },
+}))
+
+const NoteHeader = styled('h3')(() => ({
+  display: 'inline-block',
+  margin: '10px 0 15px 40px',
+  padding: '0 12px 3px',
+  borderBottom: '2px solid #333',
+}))
 
 const Home: NextPage = () => {
   const { basePath } = useRouter()
@@ -22,20 +60,20 @@ const Home: NextPage = () => {
       </Stack>
       <Box sx={{ display: { md: 'block', xs: 'none' } }}>
         <HomeHeader />
-        <div className="manual">
-          <h2>
+        <Box sx={{ width: '80%', m: '115px auto 90px', pt: '1px' }}>
+          <ManualHeader>
             1.
             <a href="https://www.google.com/intl/ja_jp/forms/about/">Google Forms</a>
             で回答を募集する
-          </h2>
-          <div className="caption">
+          </ManualHeader>
+          <CaptionBox>
             <p>
               下記の項目を質問する。
               <br />
               オリジナル質問以外のセルは回答のフォーマットが多少崩れていても自動整形される。
             </p>
-            <div className="notes">
-              <p className="title">質問する項目</p>
+            <NoteBox>
+              <NoteHeader>質問する項目</NoteHeader>
               <ul>
                 <li>部屋番号</li>
                 <li>名前(性と名の間にスペースを入れてもらうこと)</li>
@@ -53,7 +91,7 @@ const Home: NextPage = () => {
                 <li>帰省先の住所(「郵便番号 住所」のように答えてもらうこと)</li>
                 <li>オリジナル質問(4つ)</li>
               </ul>
-              <p className="title">自動整形の対象となるものの例</p>
+              <NoteHeader>自動整形の対象となるものの例</NoteHeader>
               <ul>
                 <li>部屋番号「201号室」-&gt;「201」</li>
                 <li>学年「2」-&gt;「2年」</li>
@@ -69,14 +107,14 @@ const Home: NextPage = () => {
                   308号室」
                 </li>
               </ul>
-            </div>
-          </div>
-          <h2>2.結果のスプレッドシートを編集する</h2>
-          <img src={basePath + '/images/spreadsheet.png'} alt="スプレッドシートの例" />
-          <div className="caption">
+            </NoteBox>
+          </CaptionBox>
+          <ManualHeader>2.結果のスプレッドシートを編集する</ManualHeader>
+          <ManualImg src={basePath + '/images/spreadsheet.png'} alt="スプレッドシートの例" />
+          <CaptionBox>
             <p>Google Formsの結果をスプレッドシートに出力し、それを写真のように編集する。</p>
-            <div className="notes">
-              <p className="title">注意事項</p>
+            <NoteBox>
+              <NoteHeader>注意事項</NoteHeader>
               <ul>
                 <li>
                   列(アルファベット)の順番は写真と同じようにする。行(数字)の順番は気にしなくてよい。
@@ -94,11 +132,11 @@ const Home: NextPage = () => {
                   電話番号の場合はハイフンを入れると自動整形されない。
                 </li>
               </ul>
-            </div>
-          </div>
-          <h2>3.CSVとして出力する</h2>
-          <img src={basePath + '/images/download-as-csv.png'} alt="CSVとしてダウンロード" />
-          <div className="caption">
+            </NoteBox>
+          </CaptionBox>
+          <ManualHeader>3.CSVとして出力する</ManualHeader>
+          <ManualImg src={basePath + '/images/download-as-csv.png'} alt="CSVとしてダウンロード" />
+          <CaptionBox>
             <p>
               Windows環境だとこのCSVをエクセルで開くと文字化けしていると思うが、そのままで問題ない。
               <br />
@@ -107,78 +145,35 @@ const Home: NextPage = () => {
               もし、名簿がうまく生成されなかったときは、エクセルを使ってCSV
               UTF-8に保存しなおすこと。
             </p>
-          </div>
+          </CaptionBox>
 
-          <h2>4.このページのヘッダーのボタンを押して出力したCSVを選択し、舎生名簿を生成する</h2>
-          <img src={basePath + '/images/generate.png'} alt="舎生名簿生成" />
-          <div className="caption">
+          <ManualHeader>
+            4.このページのヘッダーのボタンを押して出力したCSVを選択し、舎生名簿を生成する
+          </ManualHeader>
+          <ManualImg src={basePath + '/images/generate.png'} alt="舎生名簿生成" />
+          <CaptionBox>
             <p>
               入力CSVを選択すると、新しいタブが開き、生成された舎生名簿のページが開く。
               <br />
               ページを印刷したりPDFに変換したりするなどして保存する(上の学生部用のトグルボタンなどは自動的に消える)。
               <br />
             </p>
-          </div>
-          <h2>
+          </CaptionBox>
+          <ManualHeader>
             5.ポップアップがブロックされて生成できなかった場合は解除し、もう一度CSVファイルを選択する
-          </h2>
-          <img src={basePath + '/images/arrow-popup.png'} alt="ポップアップを許可" />
-          <div className="caption">
+          </ManualHeader>
+          <ManualImg src={basePath + '/images/arrow-popup.png'} alt="ポップアップを許可" />
+          <CaptionBox>
             <p>
               ポップアップがブロックされた場合は「ポップアップとリダイレクトを常に許可する」を選択し、もう一度ファイル選択を押して(同じ)CSVファイルを選択し、舎生名簿を生成する。
               <br />
               なお、舎生名簿生成後にCSVデータを編集し舎生名簿の再生成を行う場合も、CSVファイルの再選択を行う必要がある。
             </p>
-          </div>
-        </div>
-        <style jsx>{`
-          .manual {
-            width: 80%;
-            margin: 115px auto 90px;
-            padding: 1px;
-          }
-
-          .manual h2 {
-            padding: 30px 28px 10px;
-            border-bottom: 3px solid #333;
-          }
-
-          .manual img {
-            width: 100%;
-            margin-bottom: -12%;
-          }
-
-          .caption {
-            position: relative;
-            z-index: 1;
-            padding: 56px 0;
-            margin-bottom: 90px;
-            text-align: center;
-            background: linear-gradient(0, #fff, rgba(255, 255, 255, 0.8));
-          }
-
-          .notes {
-            max-width: 900px;
-            padding: 40px 80px;
-            border-radius: 10px;
-            background-color: #dadada;
-            margin: 35px auto 0;
-            text-align: start;
-          }
-
-          .notes .title {
-            display: inline-block;
-            margin: 10px 0 15px 40px;
-            padding: 0 12px 3px;
-            border-bottom: 2px solid #333;
-          }
-
-          .notes .title:not(:first-child) {
-            margin-top: 26px;
-          }
-        `}</style>
+          </CaptionBox>
+        </Box>
       </Box>
     </>
   )
 }
+
 export default Home
