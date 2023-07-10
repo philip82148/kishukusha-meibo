@@ -46,7 +46,7 @@ const Output: NextPage = () => {
       <Box
         sx={{
           display: 'flex',
-          p: '40px',
+          mt: '40px',
           fontSize: '2em',
           alignItems: 'center',
           justifyContent: 'center',

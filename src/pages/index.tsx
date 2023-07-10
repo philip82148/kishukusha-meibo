@@ -38,7 +38,7 @@ const NoteBox = styled(Box)(() => ({
 const NoteHeader = styled('h3')(() => ({
   display: 'inline-block',
   margin: '10px 0 15px 40px',
-  padding: '0 12px 3px',
+  padding: '0 16px 4px',
   borderBottom: '2px solid #333',
 }))
 
