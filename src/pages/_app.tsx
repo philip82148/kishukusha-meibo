@@ -16,6 +16,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
         <meta httpEquiv="Cache-Control" content="no-cache" />
         <meta httpEquiv="Pragma" content="no-cache" />
         <meta httpEquiv="Expires" content="0" />
+        <link rel="stylesheet" href="https://unpkg.com/sanitize.css" />
         <link
           rel="stylesheet"
           href="https://ss159178.stars.ne.jp/css/normalize.css?1349127987942"
