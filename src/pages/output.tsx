@@ -73,8 +73,6 @@ const Output: NextPage = () => {
         html,
         body {
           width: 2067px;
-          font-size: 15px;
-          font-family: 'Yu mincho';
         }
 
         .paper {
@@ -82,6 +80,9 @@ const Output: NextPage = () => {
           height: 1461px;
           position: relative;
           vertical-align: middle;
+          font-size: 14px;
+          font-family: '游明朝体', 'Yu Mincho', YuMincho;
+          word-break: break-word;
         }
 
         table {
