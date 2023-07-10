@@ -37,7 +37,7 @@ const NoteHeader = styled('h3')(() => ({
   margin: '10px 0 15px 40px',
   padding: '0 16px 4px',
   borderBottom: '2px solid #333',
-  '&:not(:first-child)': {
+  '&:not(:first-of-type)': {
     marginTop: '32px',
   },
 }))
