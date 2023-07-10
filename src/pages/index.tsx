@@ -92,12 +92,6 @@ const Home: NextPage = () => {
         </div>
 
         <h2>4.このページのヘッダーのボタンを押して出力したCSVを選択し、舎生名簿を生成する</h2>
-        <div className="warning">
-          <div>
-            <h3>注意</h3>
-            <p>游明朝がインストールされてないMacなどでは正しく生成されません！</p>
-          </div>
-        </div>
         <img src={basePath + '/images/generate.png'} alt="舎生名簿生成" />
         <div className="caption">
           <p>
@@ -163,20 +157,6 @@ const Home: NextPage = () => {
 
         .notes .title:not(:first-child) {
           margin-top: 26px;
-        }
-        .warning {
-          max-width: 900px;
-          padding: 20px;
-          border-radius: 10px;
-          border: 1px solid #d0d0d0;
-          margin: 35px auto;
-          text-align: center;
-        }
-
-        .warning div {
-          width: fit-content;
-          margin: 0 auto;
-          text-align: start;
         }
       `}</style>
     </>
