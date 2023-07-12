@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
-import { Box, Stack, Typography, styled } from '@mui/material'
+import { Box, Container, Stack, Typography, styled } from '@mui/material'
 
 import { HomeHeader } from '@/components/HomeHeader'
 
@@ -60,7 +60,7 @@ const Home: NextPage = () => {
       </Stack>
       <Box sx={{ display: { md: 'block', xs: 'none' } }}>
         <HomeHeader />
-        <Box sx={{ width: '80%', m: '115px auto 90px', pt: '1px' }}>
+        <Container sx={{ mt: 14, mb: '90px', pt: '1px' }}>
           <ManualHeader>
             1.
             <a href="https://www.google.com/intl/ja_jp/forms/about/">Google Forms</a>
@@ -165,12 +165,14 @@ const Home: NextPage = () => {
           <ManualImg src={basePath + '/images/arrow-popup.png'} alt="ポップアップを許可" />
           <CaptionBox>
             <p>
-              ポップアップがブロックされた場合は「ポップアップとリダイレクトを常に許可する」を選択し、もう一度ファイル選択を押して(同じ)CSVファイルを選択し、舎生名簿を生成する。
+              ポップアップがブロックされた場合は「ポップアップとリダイレクトを常に許可する」を選択し、
+              <br />
+              もう一度ファイル選択を押して(同じ)CSVファイルを選択し、舎生名簿を生成する。
               <br />
               なお、舎生名簿生成後にCSVデータを編集し舎生名簿の再生成を行う場合も、CSVファイルの再選択を行う必要がある。
             </p>
           </CaptionBox>
-        </Box>
+        </Container>
       </Box>
     </>
   )
