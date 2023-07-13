@@ -1,6 +1,6 @@
+import { Box, Container, Stack, Typography, styled } from '@mui/material'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
-import { Box, Container, Stack, Typography, styled } from '@mui/material'
 
 import { HomeHeader } from '@/components/HomeHeader'
 

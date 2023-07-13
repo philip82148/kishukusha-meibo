@@ -10,7 +10,7 @@
     "prettier:fix": "prettier --write .",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "format": "yarn prettier:fix && yarn lint:fix && yarn tsc"
+    "format": "yarn prettier:fix && yarn lint:fix && yarn tsc --noEmit"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",

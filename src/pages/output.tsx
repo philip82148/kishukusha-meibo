@@ -1,14 +1,14 @@
+import { Box, Button, FormLabel, Switch } from '@mui/material'
+import { parse } from 'csv-parse/sync'
+import type { NextPage } from 'next'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
 import type { ChangeEventHandler } from 'react'
 import { useState, useEffect } from 'react'
-import type { NextPage } from 'next'
-import { useRouter } from 'next/router'
-import Head from 'next/head'
-import { parse } from 'csv-parse/sync'
-import { Box, Button, FormLabel, Switch } from '@mui/material'
 
+import { Meibo } from '@/components/Meibo'
 import type { MeiboData } from '@/lib/meibo'
 import { getMeiboData } from '@/lib/meibo'
-import { Meibo } from '@/components/Meibo'
 
 const Output: NextPage = () => {
   const router = useRouter()
