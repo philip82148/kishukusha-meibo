@@ -1,4 +1,5 @@
 import { AsYouType, isValidNumber } from 'libphonenumber-js'
+import { Fragment } from 'react'
 
 type FormatterType = React.FC<{ children: string }>
 
@@ -54,7 +55,7 @@ export const Address: FormatterType = ({ children }) => {
     )
   }
 
-  return children
+  return <>{children}</>
 }
 
 export const BirthDate: FormatterType = ({ children }) => {
@@ -67,10 +68,10 @@ export const BirthDate: FormatterType = ({ children }) => {
 
   if (match) {
     const { year, month, date } = match.groups as { year: string; month: string; date: string }
-    return `${parseInt(year)}年${parseInt(month)}月${parseInt(date)}日`
+    return <>{`${parseInt(year)}年${parseInt(month)}月${parseInt(date)}日`}</>
   }
 
-  return children
+  return <>{children}</>
 }
 
 export const BloodType: FormatterType = ({ children }) => {
@@ -81,14 +82,23 @@ export const BloodType: FormatterType = ({ children }) => {
 
   if (match) {
     const { bloodType } = match.groups as { bloodType: string }
-    return `${bloodType}型`
+    return <>{`${bloodType}型`}</>
   }
 
-  return children
+  return <>{children}</>
 }
 
 export const Br: FormatterType = ({ children }) => {
-  return children.split(/\r\n/g).map((part, i) => (i ? [<br key={i} />, part] : part))
+  return (
+    <>
+      {children.split(/\r?\n/g).map((part, i) => (
+        <Fragment key={i}>
+          {i > 0 && <br />}
+          {part}
+        </Fragment>
+      ))}
+    </>
+  )
 }
 
 export const Email: FormatterType = ({ children }) => {
@@ -99,7 +109,7 @@ export const Email: FormatterType = ({ children }) => {
 
   if (match) {
     const { local, domain } = match.groups as { local: string; domain: string }
-    if (local.length + domain.length < 20) return `${local}@${domain}`
+    if (local.length + domain.length < 20) return <>{`${local}@${domain}`}</>
     return (
       <>
         <span>{local}</span>
@@ -120,10 +130,10 @@ export const Grade: FormatterType = ({ children }) => {
   if (match) {
     const { grade } = match.groups as { grade: string }
 
-    return `${grade}年`
+    return <>{`${grade}年`}</>
   }
 
-  return children
+  return <>{children}</>
 }
 
 export const Highschool: FormatterType = ({ children }) => {
@@ -158,7 +168,7 @@ export const Highschool: FormatterType = ({ children }) => {
     )
   }
 
-  return children
+  return <>{children}</>
 }
 
 export const Major: FormatterType = ({ children }) => {
@@ -192,7 +202,7 @@ export const Major: FormatterType = ({ children }) => {
     )
   }
 
-  return children
+  return <>{children}</>
 }
 
 export const Name: FormatterType = ({ children }) => {
@@ -213,9 +223,9 @@ export const Name: FormatterType = ({ children }) => {
 export const Nashi: FormatterType = ({ children }) => {
   const match = children.replace(/\s+/g, '').match(/^(無し?|なし)$/)
 
-  if (match) return 'なし'
+  if (match) return <>{`なし`}</>
 
-  return children
+  return <>{children}</>
 }
 
 export const Phone: FormatterType = ({ children }) => {
@@ -230,9 +240,9 @@ export const Phone: FormatterType = ({ children }) => {
   // 先頭が0と+でなければ0をつける(元がCSVなので)
   const phoneNumber = unspacedString.replace(/^(?!0|\+)/, '0')
 
-  if (!isValidNumber(phoneNumber, 'JP')) return children
+  if (!isValidNumber(phoneNumber, 'JP')) return <>{children}</>
 
-  return new AsYouType('JP').input(phoneNumber)
+  return <>{new AsYouType('JP').input(phoneNumber)}</>
 }
 
 // 半角、トリム済み

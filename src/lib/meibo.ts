@@ -37,10 +37,10 @@ function toMemberData(csvRow: string[]): MemberData {
     PCのメールアドレス: csvRow[9],
     出身高等学校: csvRow[10],
     帰省先の住所: csvRow[11],
-    ...(csvRow[12] ? { original1: csvRow[12] } : {}),
-    ...(csvRow[13] ? { original2: csvRow[13] } : {}),
-    ...(csvRow[14] ? { original3: csvRow[14] } : {}),
-    ...(csvRow[15] ? { original4: csvRow[15] } : {}),
+    ...(csvRow[12] && { original1: csvRow[12] }),
+    ...(csvRow[13] && { original2: csvRow[13] }),
+    ...(csvRow[14] && { original3: csvRow[14] }),
+    ...(csvRow[15] && { original4: csvRow[15] }),
   }
 }
 

@@ -41,7 +41,7 @@ export const Meibo: React.FC<{
   else pageProps.push({ header, rooms: roomsPerPage })
 
   return (
-    <div className={isOfficial ? 'official' : ''}>
+    <div className={isOfficial ? 'official' : undefined}>
       {pageProps.map((item, i) => (
         <Page key={i} {...item} />
       ))}
