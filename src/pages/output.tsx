@@ -1,4 +1,4 @@
-import { Box, Button, FormLabel, Switch } from '@mui/material'
+import { Button, FormLabel, Stack, Switch } from '@mui/material'
 import { parse } from 'csv-parse/sync'
 import type { NextPage } from 'next'
 import Head from 'next/head'
@@ -43,26 +43,28 @@ const Output: NextPage = () => {
       <Head>
         <title>{`舎生名簿生成器 - ${new Date().toISOString()}`}</title>
       </Head>
-      <Box
+      <Stack
+        direction="row"
+        alignItems="center"
+        justifyContent="center"
         sx={{
-          display: 'flex',
           mt: '40px',
           fontSize: '2em',
-          alignItems: 'center',
-          justifyContent: 'center',
           '@media print': {
             display: 'none',
           },
         }}
       >
         <FormLabel>
-          <Switch onChange={onToggleChanged} />
-          学生部用
+          <Stack direction="row" alignItems="center">
+            <Switch onChange={onToggleChanged} />
+            学生部用
+          </Stack>
         </FormLabel>
         <Button variant="outlined" onClick={onPrintButtonClick} sx={{ ml: 6 }}>
           印刷する
         </Button>
-      </Box>
+      </Stack>
       {meiboData && <Meibo meiboData={meiboData} isOfficial={isOfficial} />}
       <style jsx global>{`
         @page {
