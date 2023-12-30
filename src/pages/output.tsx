@@ -23,8 +23,6 @@ const Output: NextPage = () => {
           const csvRows = parse(csvString)
           const meiboData = getMeiboData(csvRows)
           setMeiboData(meiboData)
-
-          URL.revokeObjectURL(csvUrl)
         })
     }
   }, [csvUrl])

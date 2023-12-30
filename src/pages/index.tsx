@@ -153,23 +153,10 @@ const Home: NextPage = () => {
           <ManualImg src={basePath + '/images/generate.png'} alt="舎生名簿生成" />
           <CaptionBox>
             <p>
-              入力CSVを選択すると、新しいタブが開き、生成された舎生名簿のページが開く。
+              入力CSVを選択し、生成ボタンを押すと、新しいタブが開き、生成された舎生名簿のページが開く。
               <br />
               ページを印刷したりPDFに変換したりするなどして保存する(上の学生部用のトグルボタンなどは自動的に消える)。
               <br />
-            </p>
-          </CaptionBox>
-          <ManualHeader>
-            5.ポップアップがブロックされて生成できなかった場合は解除し、もう一度CSVファイルを選択する
-          </ManualHeader>
-          <ManualImg src={basePath + '/images/arrow-popup.png'} alt="ポップアップを許可" />
-          <CaptionBox>
-            <p>
-              ポップアップがブロックされた場合は「ポップアップとリダイレクトを常に許可する」を選択し、
-              <br />
-              もう一度ファイル選択を押して(同じ)CSVファイルを選択し、舎生名簿を生成する。
-              <br />
-              なお、舎生名簿生成後にCSVデータを編集し舎生名簿の再生成を行う場合も、CSVファイルの再選択を行う必要がある。
             </p>
           </CaptionBox>
         </Container>
